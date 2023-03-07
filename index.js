@@ -64,7 +64,9 @@ const renderingCountries = (arr) => {
                 <img src="${element.flags.png}" alt="sample">
                 <div class="country-details">
                     <h1 class="country-name">${element.name.common}</h1>
-                    <p>Population: <span>${element.population}</span></p>
+                    <p>Population: <span>${new Intl.NumberFormat().format(
+                      element.population
+                    )}</span></p>
                     <p>Region: <span>${element.region}</span></p>
                     <p>Capital: <span>${element.capital}</span></p>
                 </div>
@@ -97,7 +99,9 @@ const renderingSingleCountry = (data) => {
                     <p>Native Name: <span>${
                       data.name?.nativeName?.eng?.official
                     }</span></p>
-                    <p>Population: <span>${data.population}</span></p>
+                    <p>Population: <span>${new Intl.NumberFormat().format(
+                      data.population
+                    )}</span></p>
                     <p>Region: <span>${data.region}</span></p>
                     <p>Sub Region: <span>${data.subregion}</span></p>
                     <p>Capital: <span>${data.capital}</span></p>
