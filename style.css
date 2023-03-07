@@ -371,6 +371,11 @@ section {
 }
 
 @media (min-width: 600px) {
+  .section-body {
+      padding-inline: 0;
+      
+  
+    }
   .single-country {
     padding-inline: var(--size-800);
   }
