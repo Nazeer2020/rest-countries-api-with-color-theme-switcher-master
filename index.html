@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest-countries-api-with-color-theme-switcher-master</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <script src="/index.js" defer></script>
+</head>
+<body class="body">
+    <header>
+    <div class="header-container" >
+        <p>Where in the world?</p>
+        <button class="toggle-them-mode" ><i class="fas fa-moon"></i> Dark Mode</button>
+    </div>
+    </header>
+    <section >
+        <div class="section-header" >
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+            <input class="search" type="text" placeholder="Search for a county..."> 
+            </div>
+            <div class="region">
+                <div class="select-btn" aria-expanded="false">
+                    <span class="sBtn-text">Filter by Region</span>
+                    <i class="fa arrow fa-chevron-down"></i>
+                </div>
+                <ul class="options" >
+                    <li class="option">Africa</li>
+                    <li class="option">America</li>
+                    <li class="option">Asia</li>
+                    <li class="option">Europe</li>
+                    <li class="option">Oceania</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-body" >
+           <div class="country-container"></div>
+
+        </div>
+        
+    </section>
+</body>
+</html>
