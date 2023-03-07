@@ -174,12 +174,10 @@ document.addEventListener("click", function (e) {
   const target = e.target.closest(".country"); // Or any other selector.
 
   const country = target.children[1].children[0].innerText;
-  fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data[0]);
-      renderingSingleCountry(data[0]);
-    });
+
+  const result = array.filter((item) => item.name.common === country);
+
+  renderingSingleCountry(result[0]);
 });
 
 // closing single country
