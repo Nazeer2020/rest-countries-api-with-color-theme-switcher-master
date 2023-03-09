@@ -467,6 +467,12 @@ section[dark-mode="true"]{
 .single-country[dark-mode="true"] .skipe-btn,
 .single-country[dark-mode="true"],
 .single-country[dark-mode="true"] > * {
+  
   background-color: var(--clr-neutral-500);
     color: var(--clr-accent-100);
+}
+
+.single-country[dark-mode="true"] li,
+.single-country[dark-mode="true"] .skipe-btn {
+ box-shadow: 0 0 var(--size-200) var(--clr-neutral-400);
 }

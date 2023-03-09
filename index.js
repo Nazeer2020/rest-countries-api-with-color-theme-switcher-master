@@ -11,6 +11,7 @@ const countryContainer = document.querySelector(".country-container");
 const toggleThemBtn = document.querySelector(".toggle-them-mode");
 const headerContainer = document.querySelector(".header-container");
 let themeMode = localStorage.getItem("themeMode");
+const searchInput = document.querySelector(".search");
 
 console.log(themeMode);
 
@@ -97,7 +98,7 @@ const renderingSingleCountry = (data) => {
                 <div class="single-country-details-body">
                 <div class="single-country-sub-con">
                     <p>Native Name: <span>${
-                      data.name?.nativeName?.eng?.official
+                      Object.values(data.name.nativeName)[0].common
                     }</span></p>
                     <p>Population: <span>${new Intl.NumberFormat().format(
                       data.population
@@ -107,9 +108,13 @@ const renderingSingleCountry = (data) => {
                     <p>Capital: <span>${data.capital}</span></p>
                 </div>
                 <div class="single-country-sub-con">
-                    <p>Top Level Domain: <span${data.tld}</span></p>
-                    <p>Currencies: <span>${data.currencies.XCD?.name}</span></p>
-                    <p>Languages: <span>${data.languages.eng}</span></p>
+                    <p>Top Level Domain: <span>${data.tld[0]}</span></p>
+                    <p>Currencies: <span>${Object.keys(
+                      data.currencies
+                    )}</span></p>
+                    <p>Languages: <span>${Object.keys(
+                      data.languages
+                    )}</span></p>
                     
                 </div>
                 <div class="single-country-sub-con">
@@ -165,12 +170,26 @@ option.forEach((el) => {
 
 searchBtn.addEventListener("click", (e) => {
   const searchInput = document.querySelector(".search").value;
-  if (searchInput) {
-    fetchingCountries(`https://restcountries.com/v3.1/name/${searchInput}`);
+  searchCountry(searchInput);
+});
+
+searchInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    const searchInput = document.querySelector(".search").value;
+
+    event.preventDefault();
+
+    searchCountry(searchInput);
+  }
+});
+
+function searchCountry(country) {
+  if (country) {
+    fetchingCountries(`https://restcountries.com/v3.1/name/${country}`);
     e.target.value = "";
     document.querySelector(".single-country").remove();
   }
-});
+}
 
 // rendering single country
 
@@ -237,3 +256,16 @@ toggleThemBtn.addEventListener("click", (e) => {
     darkTheme();
   }
 });
+
+const object = {
+  common: "Spain",
+  official: "Kingdom of Spain",
+  nativeName: {
+    spa: {
+      official: "Reino de España",
+      common: "España",
+    },
+  },
+};
+
+console.log(Object.values(object.nativeName)[0].common);
