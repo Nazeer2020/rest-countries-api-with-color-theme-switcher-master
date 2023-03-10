@@ -295,7 +295,7 @@ section {
   width: 100%;
   object-fit: cover;
   object-fit: cover;
-  border-radius: var(--size-200) var(--size-200) 0 0;
+  border-radius: var(--size-100) var(--size-100) 0 0;
   max-height: var(--size-1000);
 }
 
@@ -454,6 +454,11 @@ section[dark-mode="true"]{
 .country[dark-mode="true"] .country-details{
   background-color: var(--clr-neutral-900);
   color: var(--clr-accent-100);
+  
+}
+
+.country[dark-mode="true"] .country-details{
+  border-radius: 0  0 var(--size-100) var(--size-100) ;
 }
 
 .section-header[dark-mode="true"] .options,
